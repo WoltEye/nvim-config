@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
         require('Comment').setup()
     end
 }
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use 'navarasu/onedark.nvim'
   use 'windwp/nvim-ts-autotag'
   use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
   use("nvim-treesitter/playground")
