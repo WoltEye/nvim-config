@@ -22,11 +22,17 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 cmp.setup({
-  snippet = {
+ snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
+  },
+  sources= {
+    {name = 'nvim_lsp'},
+    {name = 'luasnip'},
   },
   mapping = cmp.mapping.preset.insert({
     -- `Enter` key to confirm completion
